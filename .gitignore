@@ -1,0 +1,11 @@
+.DS_Store
+.vscode/
+.idea/
+node_modules/
+/data/
+/bin/
+/autoload/
+/doc/
+/build/
+/plugin/
+.pnpm-debug.log*

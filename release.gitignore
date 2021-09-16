@@ -1,0 +1,19 @@
+.DS_Store
+.vscode/
+.idea/
+node_modules/
+# /data/
+# /bin/
+# /autoload/
+# /doc/
+# /build/
+# /plugin/
+
+.eslintrc.cjs
+.eslintignore
+.pnpm-debug.log*
+.gitmodules
+.eslintrc.cjs
+.prettierrc.json
+/scripts/
+/coc.nvim/
