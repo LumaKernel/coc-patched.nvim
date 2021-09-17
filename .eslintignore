@@ -1,9 +1,0 @@
-node_modules/
-build/
-coc.nvim/
-/data/
-/bin/
-/autoload/
-/doc/
-/build/
-/plugin/
