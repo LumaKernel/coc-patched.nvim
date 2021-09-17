@@ -16,6 +16,26 @@ try {
   // ignore
 }
 
+const envPlugin = {
+  name: 'env',
+  setup(build) {
+    build.onResolve({ filter: /\/appenders/ }, (args) => {
+      const fullpath = path.join(args.resolveDir, args.path);
+      return {
+        path: path.relative(path.resolve(__dirname, '..'), fullpath).replace(/\\/g, '/'),
+        namespace: 'env-ns',
+      };
+    });
+    build.onLoad({ filter: /\/node_modules\/log4js\/lib\/appenders$/, namespace: 'env-ns' }, (args) => {
+      const content = fs.readFileSync(path.join(args.path, 'index.js'), 'utf8');
+      return {
+        contents: content.replace(/require\.main/g, '""'),
+        resolveDir: args.path,
+      };
+    });
+  },
+};
+
 async function start(watch) {
   await esbuild.build({
     entryPoints: ['coc.nvim/src/main.ts'],
@@ -39,6 +59,7 @@ async function start(watch) {
   }
 })(); `,
     },
+    plugins: [envPlugin],
   });
 
   // TODO: watch
