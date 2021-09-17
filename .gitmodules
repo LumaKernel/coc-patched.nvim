@@ -1,3 +1,0 @@
-[submodule "coc.nvim"]
-	path = coc.nvim
-	url = https://github.com/LumaKernel/coc-patching.nvim
